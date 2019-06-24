@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+
+from fireflies import *
+import random
+import numpy as np
+from City import *
+
+
+
+def find_flen(c):
+    Len=int(len(c)/2)
+    number_of_points = Len
+    k=0
+    locations=[]
+    for i in range(number_of_points):
+        X=c[k]
+        Y=c[k+1]
+        k=k+2
+        locations.append(City(X,Y))
+    solver = TSPSolver(locations)
+    new_order = solver.run()
+
+    return new_order
+    #new_locations = [locations[i] for i in new_order]
+
+    # solver.run(number_of_individuals=30)
